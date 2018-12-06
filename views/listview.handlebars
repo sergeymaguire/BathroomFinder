@@ -1,0 +1,24 @@
+<br>
+<div class="row">
+    <div class="col-md-8">
+        <img src="./images/toilet.png" style="width: 5%;"></i>&nbsp;&nbsp;<strong>LOCATION</strong>
+        
+    </div>
+    <div class="col-md-4">
+        <strong>MILES AWAY</strong>
+    </div>
+</div>
+<br>
+{{#each bathroom}}
+<div class="row">
+    <div class="col-md-8">
+        <img src="./images/toilet.png" style="width: 5%;">&nbsp;&nbsp;{{this.name}}
+        
+    </div>
+    <div class="col-md-4">
+       {{this.distance}}
+        
+    </div>
+</div>
+<hr>
+{{/each}}
