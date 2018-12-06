@@ -6,7 +6,6 @@ var bathroom = {
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
   create: function(cols, vals, cb) {
     orm.create("bathrooms", cols, vals, function(res) {
       cb(res);
