@@ -76,12 +76,16 @@ router.get("/api/get/currentposition", function (req, res) {
 });
 
 router.post("/api/add/bathroom", function (req, res) {
+  var lat,
+      lng;
+  lat =  parseFloat(req.body.restroom.latitude).toFixed(7);
+  lng =parseFloat(req.body.restroom.longitude).toFixed(7);
   //add to database
   bathroom.create(["name", "street", "city", "state", "country", "comment", "latitude", "longitude"],
     [req.body.restroom.name, req.body.restroom.street, req.body.restroom.city,
       req.body.restroom.state, req.body.restroom.country,
       req.body.restroom.comment,
-      parseFloat(req.body.restroom.latitude), parseFloat(req.body.restroom.longitude)
+      lat, lng
     ],
     function (result) {
       res.redirect("/");

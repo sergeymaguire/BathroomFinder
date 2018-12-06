@@ -110,7 +110,18 @@ function addMarkers(map, restrooms) {
       map: map,
       icon: goldStar
     });
-    var content = "<div>" + restrooms[i].name + "</div>" + "<div>" + restrooms[i].street + ", " + restrooms[i].city + "</div>" + "<div>" + "Distance(miles) " + restrooms[i].distance.toFixed(2) + "</div>";
+    var distance = 1.0;
+    if (restrooms[i].distance) {
+      distance = restrooms[i].distance;
+    } else {
+      distance = 1.0;
+    }
+    var content = "<div>" + restrooms[i].name + "</div>" + "<div>" + restrooms[i].street + ", " +
+      restrooms[i].city +
+      "</div>" + "<div>" +
+      "Distance(miles) " +
+      distance +
+      "</div>";
     var infowindow = new google.maps.InfoWindow({});
     google.maps.event.addListener(marker, "click", (function (marker, content, infowindow) {
       return function () {
